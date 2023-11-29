@@ -254,3 +254,5 @@ if(ESSENTIALS_BUILD_BENCHMARKS)
   include(${PROJECT_SOURCE_DIR}/cmake/FetchNVBench.cmake)
   add_subdirectory(benchmarks)
 endif(ESSENTIALS_BUILD_BENCHMARKS)
+
+message(STATUS "Reminder: Set CUDA_VISIBLE_DEVICES to select specific GPUs. Example: export CUDA_VISIBLE_DEVICES=1")
