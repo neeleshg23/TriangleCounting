@@ -1,0 +1,7 @@
+Per-vertex triangle count[:40] = 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Sparsity Percentage (p): 0.1
+Sparse Triangle Counts (GPU): 14734707
+GPU Elapsed Time : 50.8697 (ms)
+Discrepancy in Sparse Triangle Counts (GPU vs. CPU): 14734707 != 14757184
+Total Triangle Mismatch (GPU vs. CPU):1.47347e+10 != 1.47572e+10
+CPU Elapsed Time : 2315.16 (ms)
