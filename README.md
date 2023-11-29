@@ -1,13 +1,9 @@
-# CODING
-## GUNROCK:
-- Figure out good provable hypothesis  
-- Find symmetric input matrices
-- Find sparse graphs
-- Approximate results from gunrock/tc.cu
-- `conda activate cpu` for CMake 
-# TRUST:
-- Partition graphs via Trust github to test partitioning 
-- - Do we include partitioned large graphs?
-
-# PRESENTATION
-- Start PPT 
+## Accelerating Approximate Triangle Counting on CUDA
+First, verify cmake version 3.24 with `cmake --version`.
+Then, `make` to make a release version within `build/`.
+By hand,
+```
+mkdir build && cd build;
+cmake ..
+make tc
+```
