@@ -48,7 +48,7 @@ externals/*
 slurm-*.out
 
 # Ignore local experimental results
-experiments/res/*
+# experiments/res/*
 
 # Ignore sphinx build files
 docs/sphinx/_api/

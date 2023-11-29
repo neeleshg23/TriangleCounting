@@ -1,0 +1,6 @@
+Per-vertex triangle count[:40] = 5 4 6 6 13 7 6 8 8 4 6 4 6 6 5 6 5 7 7 7 6 6 8 9 7 5 5 8 5 4 5 6 5 8 6 5 6 4 5 3 
+Total GPU Triangles : 12655158
+GPU Elapsed Time : 2.03664 (ms)
+Discrepancy in Exact Triangle Counts (GPU vs. CPU): 12655158 != 12655158
+Number of errors : 0
+CPU Elapsed Time : 305.455 (ms)
