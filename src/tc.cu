@@ -42,12 +42,6 @@ csr_t sparsify_csr(const csr_t& csr, float p, unsigned int seed = 42) {
     return csr_sparse;
 }
 
-  /**
-   * @brief Construct a new parameters object and parse command line arguments.
-   *
-   * @param argc Number of command line arguments.
-   * @param argv Command line arguments.
-   */
 struct parameters_t {
   std::string filename;
   cxxopts::Options options;
