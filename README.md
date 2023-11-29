@@ -3,6 +3,9 @@
 ### Set GPU in Multi-GPU environment
 - `export CUDA_VISIBLE_DEVICES=1` in bash before running
 
+### Easy CMake Download 
+- `conda install cmake -y`
+
 ### Tools
 - `cmake --version` >= 3.24
 - `C++17`
