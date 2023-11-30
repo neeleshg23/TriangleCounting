@@ -1,5 +1,3 @@
-#include <optional>
-
 #include <nvbench/nvbench.cuh>
 #include <cxxopts.hpp>
 #include <gunrock/algorithms/algorithms.hxx>
@@ -50,14 +48,14 @@ using count_t = vertex_t;
 
 std::string filename_;
 bool reduce_all_triangles_;
-std::optional<float> sparsity_;
+float sparsity_;
 
 struct parameters_t {
   std::string filename;
   bool reduce_all_triangles;
   bool help = false;
+  float sparsity = 1.0;
   cxxopts::Options options;
-  std::optional<float> sparsity; 
 
   parameters_t(int argc, char** argv) : options(argv[0], "ATC Benchmarking") {
     options.allow_unrecognised_options();
@@ -86,14 +84,18 @@ struct parameters_t {
           std::exit(0);
         }
         reduce_all_triangles = result["reduce"].as<bool>();
-        if (result.count("sparsify")) {
-          sparsity = result["sparsify"].as<float>();
-        }
       } else {
         std::cout << options.help({""});
         std::cout << "  [optional nvbench args]" << std::endl << std::endl;
         std::exit(0);
       }
+    }
+    if (result.count("sparsify")) {
+        sparsity = result["sparsify"].as<float>();
+        if (sparsity < 0.0 || sparsity > 1.0) {
+            std::cerr << "Sparsity value must be between 0 and 1." << std::endl;
+            std::exit(1);
+        }
     }
   }
 };
@@ -121,10 +123,8 @@ void tc_bench(nvbench::state& state) {
 
   // --
   // Build graph
-  float p = 1.0;
-  if (sparsity_) {
-    p = *sparsity_;
-    csr = sparsify_csr(csr, p); 
+  if (sparsity_ < 1.0) {
+    csr = sparsify_csr(csr, sparsity_); 
   }
   auto G = graph::build<memory_space_t::device>(properties, csr);
 
@@ -141,6 +141,7 @@ void tc_bench(nvbench::state& state) {
   });
 }
 
+
 int main(int argc, char** argv) {
   parameters_t params(argc, argv);
   filename_ = params.filename;
@@ -152,9 +153,9 @@ int main(int argc, char** argv) {
     const char* args[1] = {"-h"};
     NVBENCH_MAIN_BODY(1, args);
   } else {
-    // Remove all gunrock parameters and pass to nvbench.
-    auto args = filtered_argv(argc, argv, "--market", "-m", "--reduce", "-r", "-s", "--sparsify",
-                              filename_, "true", "false");
+    std::string s = std::to_string(sparsity_);
+    std::string s2 = s.substr(0, 3);
+    auto args = filtered_argv(argc, argv, "--market", "-m", "--reduce", "-r", "-s", "--sparsify", "true", "false", filename_, s2);
     NVBENCH_BENCH(tc_bench);
     NVBENCH_MAIN_BODY(args.size(), args.data());
   }
