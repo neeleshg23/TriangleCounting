@@ -1,0 +1,18 @@
+terminate called after throwing an instance of 'thrust::system::detail::bad_alloc'
+  what():  std::bad_alloc: cudaErrorMemoryAllocation: out of memory
+./run.sh: line 8: 333239 Aborted                 (core dumped) ./bin/tc -m ../datasets/${d}/${d}.mtx > ../experiments/res/${d}.txt
+terminate called after throwing an instance of 'thrust::system::detail::bad_alloc'
+  what():  std::bad_alloc: cudaErrorMemoryAllocation: out of memory
+./run.sh: line 13: 334159 Aborted                 (core dumped) ./bin/tc -m ../datasets/${d}/${d}.mtx -s $p > ../experiments/res/${d}-${p_int}.txt
+terminate called after throwing an instance of 'thrust::system::detail::bad_alloc'
+  what():  std::bad_alloc: cudaErrorMemoryAllocation: out of memory
+./run.sh: line 13: 335097 Aborted                 (core dumped) ./bin/tc -m ../datasets/${d}/${d}.mtx -s $p > ../experiments/res/${d}-${p_int}.txt
+terminate called after throwing an instance of 'thrust::system::detail::bad_alloc'
+  what():  std::bad_alloc: cudaErrorMemoryAllocation: out of memory
+./run.sh: line 13: 336020 Aborted                 (core dumped) ./bin/tc -m ../datasets/${d}/${d}.mtx -s $p > ../experiments/res/${d}-${p_int}.txt
+terminate called after throwing an instance of 'thrust::system::detail::bad_alloc'
+  what():  std::bad_alloc: cudaErrorMemoryAllocation: out of memory
+./run.sh: line 13: 337444 Aborted                 (core dumped) ./bin/tc -m ../datasets/${d}/${d}.mtx -s $p > ../experiments/res/${d}-${p_int}.txt
+terminate called after throwing an instance of 'thrust::system::detail::bad_alloc'
+  what():  std::bad_alloc: cudaErrorMemoryAllocation: out of memory
+./run.sh: line 13: 338415 Aborted                 (core dumped) ./bin/tc -m ../datasets/${d}/${d}.mtx -s $p > ../experiments/res/${d}-${p_int}.txt
